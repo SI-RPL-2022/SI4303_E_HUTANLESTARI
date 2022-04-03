@@ -21,6 +21,21 @@ Route::get('opendonasi', function () {
     return view('opendonasi');
 });
 
+<<<<<<< HEAD
 Route::get('LoginUser', function () {
     return view('LoginUser');
 });
+=======
+
+<<<<<<< HEAD
+
+
+=======
+Route::get('LoginUser', function () {
+    return view('LoginUser');
+});
+=======
+
+>>>>>>> a5428141916f3244ad51f020fe336a8037994cba
+>>>>>>> 58df0990faa4b36eae660abdebd663a6ec2afcb2
+>>>>>>> d1a16eb8ae8defc5ba88d208fa2b7994094c8918
