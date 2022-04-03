@@ -21,6 +21,10 @@ Route::get('opendonasi', function () {
     return view('opendonasi');
 });
 
+<<<<<<< HEAD
 Route::get('LoginUser', function () {
     return view('LoginUser');
 });
+=======
+
+>>>>>>> a5428141916f3244ad51f020fe336a8037994cba
