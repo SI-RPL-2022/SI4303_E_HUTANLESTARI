@@ -21,3 +21,6 @@ Route::get('opendonasi', function () {
     return view('opendonasi');
 });
 
+Route::get('LoginRegister', function () {
+    return view('LoginRegister');
+});
