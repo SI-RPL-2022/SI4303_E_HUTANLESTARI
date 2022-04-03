@@ -21,6 +21,3 @@ Route::get('opendonasi', function () {
     return view('opendonasi');
 });
 
-Route::get('LoginUser', function () {
-    return view('LoginUser');
-});
