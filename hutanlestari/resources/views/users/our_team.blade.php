@@ -1,8 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Our Team')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Campaign</title>
+</head>
 
-@section('content')
+<body>
+  <section>
     <h1 class="fw-bold text-center mb-4">Our Team</h1>
     <div class="ms-0 ms-md-5 me-0 me-md-5">
         <div class="container" align="center">
@@ -56,4 +68,5 @@
             </div>
           </div>
     </div>
-@endsection
+  </section>
+</body>
