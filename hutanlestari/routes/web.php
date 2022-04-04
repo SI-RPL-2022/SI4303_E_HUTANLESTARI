@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('opendonasi', function () {
-    return view('opendonasi');
+Route::get('donasi', function () {
+    return view('donasi');
 });
 
 Route::get('infokehutanan', function () {
