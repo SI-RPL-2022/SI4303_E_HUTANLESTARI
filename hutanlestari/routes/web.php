@@ -21,3 +21,10 @@ Route::get('opendonasi', function () {
     return view('opendonasi');
 });
 
+Route::get('infokehutanan', function () {
+    return view('infokehutanan');
+});
+
+Route::get('our_team', function () {
+    return view('our_team');
+});
