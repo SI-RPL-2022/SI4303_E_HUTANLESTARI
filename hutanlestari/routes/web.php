@@ -28,3 +28,11 @@ Route::get('infokehutanan', function () {
 Route::get('our_team', function () {
     return view('our_team');
 });
+
+Route::get('campaign', function () {
+    return view('campaign/index');
+});
+
+Route::get('layoutsapp', function () {
+    return view('layouts/app');
+});
