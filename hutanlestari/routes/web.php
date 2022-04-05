@@ -28,3 +28,7 @@ Route::get('infokehutanan', function () {
 Route::get('our_team', function () {
     return view('our_team');
 });
+
+Route::get('pagehome', function () {
+    return view('Pagehome');
+});
