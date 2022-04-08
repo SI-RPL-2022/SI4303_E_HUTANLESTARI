@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,8 @@ Route::get('infokehutanan', function () {
 
 Route::get('our_team', function () {
     return view('our_team');
+});
+
+Route::get('login', function () {
+    return view('login');
 });
