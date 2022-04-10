@@ -36,3 +36,7 @@ Route::get('campaign', function () {
 Route::get('layoutsapp', function () {
     return view('layouts/app');
 });
+
+Route::get('detail', function () {
+    return view('campaign/detail');
+});
