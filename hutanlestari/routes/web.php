@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('donasi', function () {
-    return view('donasi');
-});
-
 Route::get('infokehutanan', function () {
     return view('infokehutanan');
 });
@@ -28,3 +24,6 @@ Route::get('infokehutanan', function () {
 Route::get('our_team', function () {
     return view('our_team');
 });
+
+Route::get('/donasi' , [\App\Http\Controllers\DonasiController::class , 'donasi'])->name('donasi');
+
