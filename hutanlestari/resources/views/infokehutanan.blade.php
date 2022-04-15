@@ -8,7 +8,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Informasi Kehutanan</title>
+    <title>Information</title>
 </head>
 
 <body>
@@ -16,11 +16,11 @@
       {{-- info grafik --}}
       <div class="bg-card">
         <div class="container p-3">
-            <h4 class="text-center p-2 w-25 mx-auto mb-5" style="background: rgba(255, 255, 255, 0.5)">
+            <h5 class="text-center p-2 w-50 mx-auto mb-5 rounded" style="background: #DEE9E1">
                 Informasi Kehutanan
-            </h4>
+            </h5>
 
-        <img src="{{ asset('gmbr/pict1.png') }}" class="card-img-top" alt="illustration-image">
+        <img src="{{ asset('gmbr/pict1.png') }}" alt="" class="img d-block align-items-center mx-auto justify-content-center">
         <div class="card-body">
           <p class="card-text">Botanic Gardens Conservation International [BGCI] memberikan laporan terbarunya mengenai kondisi pepohonan di Planet Bumi.
             Dari laporannya berjudul State of the Worlds Trees [2021] dijelaskan bahwa dalam lima tahun terakhir, sekitar 17.500 dari 60.000 spesies pohon di dunia terancam punah. 
@@ -32,13 +32,14 @@
             <div class="container">
               <div class="container p-3">
                   <h5 class="text-center p-2 w-50 mx-auto mb-5 rounded" style="background: #DEE9E1">
-                      Flora khas Indonesia yang Langka & Terancam punah,
+                      Flora khas Indonesia yang Langka & Terancam punah,  
                       Yuk Kita Jaga!
                   </h5>
       
                   <div class="row">
                       <div class="col"></div>
                       <div class="col-3">
+                        <a href="" style="text-decoration: none;color: black" >
                               <div class="card bg-sakti">
                               <div class="card-body">
                                   <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
@@ -51,6 +52,7 @@
                           </a>
                       </div>
                       <div class="col-3">
+                        <a href="" style="text-decoration: none;color: black" >
                               <div class="card bg-sakti">
                                   <div class="card-body">
                                       <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
@@ -63,6 +65,7 @@
                           </a>
                       </div>
                       <div class="col-3">
+                        <a href="" style="text-decoration: none;color: black" >
                               <div class="card bg-sakti">
                                   <div class="card-body">
                                       <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
@@ -91,7 +94,10 @@
                 <div class="col"></div>
                 <div class="col-4">
                     <img src="{{asset('gmbr/grafkomodo1.png')}}" alt="" class="d-block mx-auto">
+                    &emsp;
                     <img src="{{asset('gmbr/komodo.png')}}" alt="" class="d-block mx-auto">
+                    &emsp;
+                    <a href="" class="btn btn-secondary text-center w-100" style="background: #929994dc ; color: black"><b>Komodo</b></a>
                 </div>
             <div class="col-1">
 
@@ -99,11 +105,17 @@
 
             <div class="col-4">
                 <img src="{{asset('gmbr/graforangutan.png')}}" alt="" class="d-block mx-auto">
+                &emsp;
                 <img src="{{asset('gmbr/orut.png')}}" alt="" class="d-block mx-auto">
+                &emsp;
+                <a href="" class="btn btn-secondary text-center w-100" style="background: #929994dc ; color: black"><b>Orangutan</b></a>
             </div>
 
             <div class="col">
+
             </div>
         </div>
+
     </div>
+
 </div>
