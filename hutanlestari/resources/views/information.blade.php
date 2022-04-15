@@ -32,7 +32,7 @@
             <div class="container">
               <div class="container p-3">
                   <h5 class="text-center p-2 w-50 mx-auto mb-5 rounded" style="background: #DEE9E1">
-                      Flora khas Indonesia yang Langka & Terancam punah,  
+                      Berikut Ini Contoh Flora khas Indonesia yang Langka & Terancam punah,  
                       Yuk Kita Jaga!
                   </h5>
       
@@ -87,7 +87,7 @@
       <div class="bg-card">
         <div class="container p-3">
             <h5 class="text-center p-2 w-50 mx-auto mb-5 rounded" style="background: #DEE9E1">
-                Fauna yang Hampir Punah dan Dilindungi di Indonesia
+                Berikut Merupakan Contoh Fauna yang Hampir Punah dan Dilindungi di Indonesia
             </h5>
 
             <div class="row">
@@ -97,7 +97,7 @@
                     &emsp;
                     <img src="{{asset('gmbr/komodo.png')}}" alt="" class="d-block mx-auto">
                     &emsp;
-                    <a href="" class="btn btn-secondary text-center w-100" style="background: #929994dc ; color: black"><b>Komodo</b></a>
+                    <a href="" class="btn btn-secondary text-center w-100" style="background: #DEE9E1 ; color: black"><b>Komodo</b></a>
                 </div>
             <div class="col-1">
 
@@ -108,7 +108,7 @@
                 &emsp;
                 <img src="{{asset('gmbr/orut.png')}}" alt="" class="d-block mx-auto">
                 &emsp;
-                <a href="" class="btn btn-secondary text-center w-100" style="background: #929994dc ; color: black"><b>Orangutan</b></a>
+                <a href="" class="btn btn-secondary text-center w-100" style="background: #DEE9E1 ; color: black"><b>Orangutan</b></a>
             </div>
 
             <div class="col">

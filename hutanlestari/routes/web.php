@@ -21,8 +21,8 @@ Route::get('donasi', function () {
     return view('donasi');
 });
 
-Route::get('infokehutanan', function () {
-    return view('infokehutanan');
+Route::get('information', function () {
+    return view('information');
 });
 
 Route::get('our_team', function () {
