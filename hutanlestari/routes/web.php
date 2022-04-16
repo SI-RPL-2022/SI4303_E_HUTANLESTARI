@@ -28,3 +28,7 @@ Route::get('information', function () {
 Route::get('our_team', function () {
     return view('our_team');
 });
+
+Route::prefix('information')->group(function () {
+    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
+});
