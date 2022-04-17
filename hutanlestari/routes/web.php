@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('/home');
+});
+
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -28,3 +32,13 @@ Route::get('infokehutanan', function () {
 Route::get('our_team', function () {
     return view('our_team');
 });
+
+Route::get('layoutsapp', function () {
+    return view('layouts/app');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
