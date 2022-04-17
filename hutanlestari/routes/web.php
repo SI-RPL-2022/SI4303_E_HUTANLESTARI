@@ -29,6 +29,18 @@ Route::get('our_team', function () {
     return view('our_team');
 });
 
-Route::get('pagehome', function () {
-    return view('Pagehome');
+// Route::get('pagehome', function () {
+//     return view('Pagehome');
+// });
+
+Route::get('/', function () {
+    return redirect('/home');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
