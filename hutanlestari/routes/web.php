@@ -26,12 +26,8 @@ Route::get('donasi', function () {
     return view('donasi');
 });
 
-Route::get('infokehutanan', function () {
-    return view('infokehutanan');
-});
-
-Route::get('our_team', function () {
-    return view('our_team');
+Route::prefix('information')->group(function () {
+    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
 });
 
 // Route::get('pagehome', function () {

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- dibawah ni fungsinya buat apa? csrf sama config tu? --}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -56,6 +57,7 @@
                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link" href="">Home</a>
                             </li>
                             <li class="nav-item">
@@ -63,6 +65,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="">Information</a>
+=======
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Campaign</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Information</a>
+>>>>>>> vina
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>
@@ -90,7 +101,17 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a href="" class="dropdown-item">
+                                        Dashborad
+                                    </a>
+
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
+                                        <a href="{{route('admin.verifdana')}}" class="dropdown-item">
+                                            Dashborad admin
+                                        </a>
+                                        @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
