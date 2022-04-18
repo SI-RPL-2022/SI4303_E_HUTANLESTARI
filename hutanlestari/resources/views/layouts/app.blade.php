@@ -56,16 +56,16 @@
                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="">Home</a>
+                                <a class="nav-link" href="{{route('home')}}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Campaign</a>
+                                <a class="nav-link" href="{{route('campaign.index')}}">Campaign</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Information</a>
+                                <a class="nav-link" href="{{route('informasi.index')}}">Information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Blog</a>
+                                <a class="nav-link" href="#">Blog</a>
                             </li>
                         </ul>
                     </div>

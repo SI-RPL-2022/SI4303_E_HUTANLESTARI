@@ -15,7 +15,15 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('auth.login');
+=======
+    return view('/home');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+>>>>>>> 39f7b9fef6a7622a303aeec7209b3366b39ed376
 });
 
 Route::get('donasi', function () {
@@ -30,9 +38,18 @@ Route::get('our_team', function () {
     return view('our_team');
 });
 
+<<<<<<< HEAD
 Route::get('login', function () {
     return view('login');
 });
+=======
+Route::get('layoutsapp', function () {
+    return view('layouts/app');
+});
+
+
+
+>>>>>>> 39f7b9fef6a7622a303aeec7209b3366b39ed376
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
