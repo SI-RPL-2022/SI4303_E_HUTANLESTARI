@@ -1,20 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="img img-fluid overflow-hidden" style="max-height: 350px">
+        <img src="{{asset('gmbr/back1.png')}}" alt="">
+    </div>
+<div class="container-fluid bg-card p-3 mb-3">
+    <div class="container">
+        <p class="text-center">Hal sederhana, jadi lebih bermakna bersama Hutan Lestari.
+            Buat aksi penanaman dan lingkungan dengan mudah, aman dan transparan.
+            Mulai <span class="text-success">#CampaginPertama </span>kamu.</p>
+    </div>
+</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="container-fluid p-3 mb-3">
+            <div class="container">
+                <h4 class="text-center text-success mb-3">
+                    Donasi dan Relawan
+                </h4>
+                <div class="d-flex justify-content-center">
+                <div class="card w-50 mx-3">
+                    <div class="card-header">
+                        <h5 class="text-success text-center">Donasi</h5>
+                    </div>
+                    <div class="card-body" style="height: 200px">
 
-                    {{ __('You are logged in!') }}
+                    </div>
+                </div>
+
+                <div class="card w-50 mx-3">
+                    <div class="card-header">
+                        <h5 class="text-success text-center">Volunteer</h5>
+                    </div>
+                    <div class="card-body" style="height: 200px">
+
+                    </div>
                 </div>
             </div>
         </div>
