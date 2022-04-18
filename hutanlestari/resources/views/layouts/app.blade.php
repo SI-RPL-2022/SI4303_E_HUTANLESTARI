@@ -57,7 +57,6 @@
                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-<<<<<<< HEAD
                                 <a class="nav-link" href="">Home</a>
                             </li>
                             <li class="nav-item">
@@ -65,15 +64,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="">Information</a>
-=======
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Campaign</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Information</a>
->>>>>>> vina
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>
