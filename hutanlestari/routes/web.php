@@ -16,13 +16,6 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('auth.login');
-<<<<<<< HEAD
-});
-
-Route::get('/', function () {
-    return view('welcome');
-=======
->>>>>>> tania
 });
 
 Route::get('donasi', function () {
@@ -41,13 +34,10 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
-<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-=======
->>>>>>> tania
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
