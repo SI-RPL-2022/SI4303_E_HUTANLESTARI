@@ -4,7 +4,7 @@
     <div class="container-sm shadow-lg my-4 p-3">
         <div class="d-flex align-items-center justify-content-center">
             <img src="{{asset('campaignimage/'.$data->img)}}" style="width: 15%" alt="">
-            <h4 class="ml-3">donasi untuk campaign</h4>
+            <h4 class="ml-3">donasi untuk {{$data->nama_campaign}}</h4>
         </div>
 </div>
 <form action="{{route('campaign.donasi' , ['id'=>$data->id])}}" method="post">

@@ -42,6 +42,8 @@ class campaignController extends Controller
         $data->target = $request->target;
         $data->verifikasi_check = 0;
 
+
+        
         $file = $request->file('file');
 
         $nama_file = time()."_".$file->getClientOriginalName();
@@ -72,7 +74,7 @@ class campaignController extends Controller
         $data->user_id = Auth::user()->id;
         $data->campaign_id = $id;
         $data->jumlah_donasi = $request->nominal;
-        $data->verifikasi_check = 0;
+        $data->verifikasi_check = 0 ;
         $data->save();
 
         $x = Campaign::find($id);

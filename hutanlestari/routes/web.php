@@ -35,6 +35,7 @@ Route::prefix('campaign')->group(function (){
     Route::get('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'form'])->name('campaign.form');
     Route::post('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'formpost'])->name('campaign.form');
     Route::get('/detail/{id}' , [\App\Http\Controllers\campaignController::class , 'detail'])->name('campaign.detail');
-    Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasi'])->name('campaign.donasi');
-    Route::get('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
+    Route::get('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasi'])->name('campaign.donasi');
+    Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
+
 });
