@@ -15,7 +15,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('/home');
+    return view('auth.login');
 });
 
 Route::get('/', function () {
@@ -26,19 +26,21 @@ Route::get('donasi', function () {
     return view('donasi');
 });
 
-Route::get('infokehutanan', function () {
-    return view('infokehutanan');
+Route::prefix('information')->group(function () {
+    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
 });
 
-Route::get('our_team', function () {
-    return view('our_team');
+// Route::get('pagehome', function () {
+//     return view('Pagehome');
+// });
+
+Route::get('/', function () {
+    return redirect('/home');
 });
 
-Route::get('layoutsapp', function () {
-    return view('layouts/app');
-});
+Auth::routes();
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
