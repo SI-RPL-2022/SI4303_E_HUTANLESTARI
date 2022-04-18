@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('/home');
+});
+
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -24,3 +29,13 @@ Route::get('donasi', function () {
 Route::prefix('information')->group(function () {
     Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
 });
+
+Route::get('layoutsapp', function () {
+    return view('layouts/app');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
