@@ -39,3 +39,4 @@ Route::prefix('campaign')->group(function (){
     Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
 
 });
+
