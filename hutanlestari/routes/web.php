@@ -40,3 +40,7 @@ Route::get('layoutsapp', function () {
 Route::get('detail', function () {
     return view('campaign/detail');
 });
+
+Route::get('form', function () {
+    return view('campaign/form');
+});
