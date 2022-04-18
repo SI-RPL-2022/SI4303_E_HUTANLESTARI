@@ -28,3 +28,7 @@ Route::get('our_team', function () {
 Route::get('/donasi' , [\App\Http\Controllers\DonasiController::class , 'donasi'])->name('donasi');
 Route::post('/donasi' , [\App\Http\Controllers\DonasiController::class , 'donasi'])->name('donasi');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

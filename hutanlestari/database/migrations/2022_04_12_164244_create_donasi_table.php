@@ -17,8 +17,6 @@ class CreateDonasiTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('campaign_id');
-            $table->foreign('campaign_id')->references('id')->on('campaign')->onDelete('cascade');
             $table->integer('jumlah_donasi');
             $table->char('verifikasi_check');
             $table->timestamps();
