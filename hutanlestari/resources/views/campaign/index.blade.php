@@ -1,61 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Campaign</title>
-</head>
+@extends('layouts.app')
 
-<body>
-  <section>
-    <div class="container">
-      <h3 class="text-center text-success my-3">Campaign Terkini</h3>
-      <div class="row">
-          <div class="col">
+@section('content')
+  <div class="container">
+    <h3 class="text-center text-success my-3">Campaign Terkini</h3>
+    <div class="row">
+        <div class="col">
 
-          </div>
-          <div class="col-3">
-            <div class="card rounded-3">
-                <img src="" class="card-img-top" alt="poster campaign">
-                <div class="card-body">
-                    <h5 class="card-title">nama campaign</h5>
-                    <p>X dontaur</p>
-                    <p class="card-text mb-3">Rp.</p>
-                    <p style="text-align: right">bbrp Hari Lagi</p>
-                    <div class="progress">
-                        <div class="progress-bar bg-success">progressbar</div>
-                    <a href="" class="btn btn-outline-success w-100 mt-3">Detail Campaign</a>
+        </div>
+
+        <?php $x=0?>
+        @foreach($data as $x)
+        <div class="col-3">
+          <div class="card rounded-3">
+              <img src="{{asset('campaignimage/'.$x->img)}}" class="card-img-top" alt="poster campaign">
+              <div class="card-body">
+                  <h5 class="card-title">{{$x->nama_campaign}}</h5>
+                  <p class="card-text mb-3">Rp.{{$x->donasi_terkini}}</p>
+                  <?php
+
+                    $y =    \Carbon\Carbon::now()->format('Y-m-d');
+                    $t = \Carbon\Carbon::parse($x->end_date)->diffInDays($y);
+                  ?>
+                  <p style="text-align: right">{{$t}} Hari Lagi</p>
+                  <div class="progress">
+                      <div class="progress-bar bg-success" style="width: <?php
+                        if ($x->donasi_terkini >= $x->target){
+                            echo "100%";
+                        }else {
+                          $lebar =  $x->donasi_terkini / $x->target * 100;
+                          echo $lebar."%";
+                        }
+                        ?>;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
+                <a href="{{route('campaign.detail' , ['id'=>$x->id])}}" class="btn btn-outline-success w-100 mt-3">Detail Campaign</a>
             </div>
         </div>
-        <div class="col"></div>
       </div>
-  </section>
+        @endforeach
 
-  <section>
+      <div class="col"></div>
+    </div>
+
     <h3 class="text-success py-3" style="margin-left: 150px">Campaign</h3>
 
     <div class="d-flex container flex-wrap  align-content-between justify-content-center">
+      <?php $x=0?>
+      @foreach($pag as $x)
       <div class="mx-1 w-25 my-3">
         <div class="card rounded-3">
-            <img src="" class="card-img-top" alt="poster campaign">
+            <img src="{{asset('campaignimage/'.$x->img)}}" class="card-img-top" alt="poster campaign">
             <div class="card-body">
-                <h5 class="card-title">nama campaign</h5>
-                <p class="card-text mb-1">Rp.</p>
-                <p style="text-align: right">bbrp Hari Lagi</p>
+                <h5 class="card-title">{{$x->nama_campaign}}</h5>
+                <p class="card-text mb-1">Rp.{{$x->target}}</p>
+                <?php
+
+                  $y =    \Carbon\Carbon::now()->format('Y-m-d');
+                  $t = \Carbon\Carbon::parse($x->end_date)->diffInDays($y);
+                ?>
+                <p style="text-align: right">{{$t}} Hari Lagi</p>
                 <div class="progress">
-                    <div class="progress-bar bg-success">progressbar</div>
-                </div>
-                <a href="" class="btn btn-outline-success w-100 mt-3">Detail Campaign</a>
+                  <div class="progress-bar bg-success"  style="width: <?php
+                  if ($x->donasi_terkini >= $x->target){
+                      echo "100%";
+                  }else {
+                      $lebar =  $x->donasi_terkini / $x->target * 100;
+                      echo $lebar."%";
+                  }
+                  ?>;" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+                <a href="{{route('campaign.detail' , ['id'=>$x->id])}}" class="btn btn-outline-success w-100 mt-3">Detail Campaign</a>
             </div>
         </div>
       </div>
-    </div>
-  </section>
+      @endforeach
 
-</body>
+      
+    </div>
+    <div class="d-flex justify-content-center">
+         {{$pag->links()}}
+    </div>
+
+  </div>
+@endsection

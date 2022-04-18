@@ -15,11 +15,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('/home');
-});
-
-Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('donasi', function () {
@@ -34,29 +30,17 @@ Route::get('our_team', function () {
     return view('our_team');
 });
 
-<<<<<<< HEAD
-Route::get('campaign', function () {
-    return view('campaign/index');
-});
-
-=======
->>>>>>> 7780b274d2d006cbe804c4225fd420c8627053de
 Route::get('layoutsapp', function () {
     return view('layouts/app');
 });
 
-<<<<<<< HEAD
-Route::get('detail', function () {
-    return view('campaign/detail');
-});
-
-Route::get('form', function () {
-    return view('campaign/form');
-});
-=======
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 7780b274d2d006cbe804c4225fd420c8627053de
+
+Route::prefix('campaign')->group(function (){
+    Route::get('/index' , [\App\Http\Controllers\campaignController::class , 'index'])->name('campaign.index');
+    Route::get('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'form'])->name('campaign.form');
+    Route::post('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'formpost'])->name('campaign.form');
+    Route::get('/detail/{id}' , [\App\Http\Controllers\campaignController::class , 'detail'])->name('campaign.detail');
+});
