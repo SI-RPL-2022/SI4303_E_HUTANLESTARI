@@ -16,10 +16,13 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('auth.login');
+<<<<<<< HEAD
 });
 
 Route::get('/', function () {
     return view('welcome');
+=======
+>>>>>>> tania
 });
 
 Route::get('donasi', function () {
@@ -38,10 +41,20 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+=======
+>>>>>>> tania
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('campaign')->group(function (){
+    Route::get('/index' , [\App\Http\Controllers\campaignController::class , 'index'])->name('campaign.index');
+    Route::get('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'form'])->name('campaign.form');
+    Route::post('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'formpost'])->name('campaign.form');
+    Route::get('/detail/{id}' , [\App\Http\Controllers\campaignController::class , 'detail'])->name('campaign.detail');
+});
