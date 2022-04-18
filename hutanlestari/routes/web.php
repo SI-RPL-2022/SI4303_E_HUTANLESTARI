@@ -18,25 +18,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('donasi', function () {
-    return view('donasi');
-});
-
 Route::prefix('information')->group(function () {
     Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
 });
 
-// Route::get('pagehome', function () {
-//     return view('Pagehome');
-// });
-
 Route::get('/', function () {
     return redirect('/home');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -47,4 +35,6 @@ Route::prefix('campaign')->group(function (){
     Route::get('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'form'])->name('campaign.form');
     Route::post('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'formpost'])->name('campaign.form');
     Route::get('/detail/{id}' , [\App\Http\Controllers\campaignController::class , 'detail'])->name('campaign.detail');
+    Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasi'])->name('campaign.donasi');
+    Route::get('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
 });

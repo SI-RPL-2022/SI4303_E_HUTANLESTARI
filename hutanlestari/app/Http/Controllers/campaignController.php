@@ -59,4 +59,25 @@ class campaignController extends Controller
         $data = Campaign::find($id);
         return view('campaign.detail',['data'=>$data]);
     }
+
+    public function donasi($id){
+        $data = Campaign::find($id);
+        return view('campaign.donasi',['data'=>$data]);
+    }
+
+    public function donasipost(){
+        $data = new Donasi();
+        $data->user_id = Auth::user()->id;
+        $data->campaign_id = $id;
+        $data->jumlah_donasi = $request->nominal;
+        $data->verifikasi_check = 0;
+        $data->save();
+
+        $x = Campaign::find($id);
+        $x->donasi_terkini = $x->donasi_terkini + $request->nominal;
+        $x->save();
+
+        return redirect()->route('campaign.index');
+
+    }
 }
