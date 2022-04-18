@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use Illuminate\Http\Request;
+use App\Models\Donasi;
+use Illuminate\Support\Facades\Auth;
 
 class campaignController extends Controller
 {
@@ -65,7 +67,7 @@ class campaignController extends Controller
         return view('campaign.donasi',['data'=>$data]);
     }
 
-    public function donasipost(){
+    public function donasipost($id , Request  $request){
         $data = new Donasi();
         $data->user_id = Auth::user()->id;
         $data->campaign_id = $id;

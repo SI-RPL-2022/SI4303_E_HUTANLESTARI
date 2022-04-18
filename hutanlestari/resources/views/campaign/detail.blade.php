@@ -2,7 +2,7 @@
 @section('content')
         <div class="container">
             <div class="card bg-card mt-5 p-4">
-                    <img src="{{asset('campaignimage/'.$data->img)}}" class="w-25 d-block mx-auto mb-3" alt="poster campaign">
+                <img src="{{asset('campaignimage/'.$data->img)}}" class="w-25 d-block mx-auto mb-3" alt="poster campaign">
                 <h4 class="text-center mb-5">{{$data->nama_campaign}}</h4>
 
                 <h5 class="mb-1">Description</h5>
@@ -25,7 +25,7 @@
                 <div class="row">
                     @if($data->donation_check != 0)
                     <div class="col">
-                        <a href="" class="w-100 btn btn-success">Donation</a>
+                        <a href="{{route('campaign.donasi' , ['id'=>$data->id])}}" class="w-100 btn btn-success">Donation</a>
                     </div>
                     @else
 
