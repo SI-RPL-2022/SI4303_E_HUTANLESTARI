@@ -30,25 +30,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< HEAD
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f5a4de3df0b32df0a768608bf0cdb2d3c80a0494
-Route::prefix('campaign')->group(function (){
-    Route::get('/index' , [\App\Http\Controllers\campaignController::class , 'index'])->name('campaign.index');
-    Route::get('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'form'])->name('campaign.form');
-    Route::post('/formcampaign' , [\App\Http\Controllers\campaignController::class , 'formpost'])->name('campaign.form');
-    Route::get('/detail/{id}' , [\App\Http\Controllers\campaignController::class , 'detail'])->name('campaign.detail');
-<<<<<<< HEAD
+Route::prefix('campaign')->group(function () {
+    Route::get('/index', [\App\Http\Controllers\campaignController::class, 'index'])->name('campaign.index');
+    Route::get('/formcampaign', [\App\Http\Controllers\campaignController::class, 'form'])->name('campaign.form');
+    Route::post('/formcampaign', [\App\Http\Controllers\campaignController::class, 'formpost'])->name('campaign.form');
+    Route::get('/detail/{id}', [\App\Http\Controllers\campaignController::class, 'detail'])->name('campaign.detail');
+    Route::post('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasi'])->name('campaign.donasi');
+    Route::get('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasipost'])->name('campaign.donasi');
 });
->>>>>>> d0366c4fbd035f0c013a5d6104bfb8c83c31224b
-=======
-    Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasi'])->name('campaign.donasi');
-    Route::get('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
-});
->>>>>>> f5a4de3df0b32df0a768608bf0cdb2d3c80a0494
