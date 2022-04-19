@@ -41,7 +41,10 @@
       <div class="col"></div>
     </div>
 
-    <h3 class="text-success py-3" style="margin-left: 150px">Campaign</h3>
+    <div class="d-flex align-content-between mt-2 justify-content-between">
+      <h3 class="text-success py-3" style="margin-left: 150px">Campaign</h3>
+      <a href="{{route('campaign.form')}}" class="text-center btn btn-success">+ Buat Campaign</a>
+    </div>
 
     <div class="d-flex container flex-wrap  align-content-between justify-content-center">
       <?php $x=0?>
