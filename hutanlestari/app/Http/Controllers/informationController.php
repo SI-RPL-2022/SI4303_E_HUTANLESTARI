@@ -13,7 +13,7 @@ class informationController extends Controller
     {
         $data = InformasiFauna::latest()->take(2)->get();
         $flora = InformasiFlora::latest()->take(3)->get();
-        return view('information.infromation', ['data' => $data, 'flora' => $flora]);
+        return view('information.information', ['data' => $data, 'flora' => $flora]);
     }
     public function flora($id)
     {

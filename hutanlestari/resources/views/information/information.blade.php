@@ -62,37 +62,40 @@
       {{-- info fauna --}}
       <div class="bg-card">
         <div class="container p-3">
-            <h5 class="text-center p-2 w-50 mx-auto mb-5 rounded bg-white">
-                Berikut Merupakan Contoh Fauna yang Hampir Punah dan Dilindungi di Indonesia
+            <h5 class="text-center p-2 w-50 mx-auto mb-3 rounded bg-white" >
+                Fauna yang Hampir Punah dan Dilindungi di Indonesia
             </h5>
 
-            <div class="row">
-                <div class="col"></div>
+            @if(\Illuminate\Support\Facades\Auth::check())
+                @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
+                  <a href="{{route('admin.informasifaunaform')}}" class="btn btn-success"> Tambah Fauna</a>
+                @else
+
+                @endif
+            @endif
+
+            <div class="d-flex justify-content-center align-items-center">
+
+                @foreach($data as $x)
+
                 <div class="col-4">
-                    <img src="{{asset('gmbr/grafkomodo1.png')}}" alt="" class="d-block mx-auto">
-                    &emsp;
-                    <img src="{{asset('gmbr/komodo.png')}}" alt="" class="d-block mx-auto">
-                    &emsp;
-                    <a href="" class="btn btn-secondary text-center w-100" style="background-color: rgba(34, 105, 54, 0.349); color: black"><b>Komodo</b></a>
+                  <center>
+                        <div class="ldBar mb-4" data-preset="fan" data-value="{{$x->persen_populasi}}" >
+                        </div>
+                  </center>
+                    <img src="{{asset('informasifaunaimage/'.$x->gambar)}}" alt="" class="d-block mx-auto w-75">
+                    <a href="{{route('informasi.fauna' , ['id'=>$x->id])}}" class="btn btn-warning text-center w-100">{{$x->nama_fauna}}</a>
                 </div>
-            <div class="col-1">
+
+                @endforeach
+
+
 
             </div>
 
-            <div class="col-4">
-                <img src="{{asset('gmbr/graforangutan.png')}}" alt="" class="d-block mx-auto">
-                &emsp;
-                <img src="{{asset('gmbr/orut.png')}}" alt="" class="d-block mx-auto">
-                &emsp;
-                <a href="" class="btn btn-secondary text-center w-100" style="background-color: rgba(34, 105, 54, 0.349); color: black"><b>Orangutan</b></a>
-            </div>
-
-            <div class="col">
-
-            </div>
         </div>
 
     </div>
 
-</div>
+
 @endsection
