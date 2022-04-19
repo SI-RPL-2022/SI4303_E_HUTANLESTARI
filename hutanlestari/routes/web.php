@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +12,6 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-Route::prefix('information')->group(function () {
-    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
-});
 
 Route::get('/', function () {
     return redirect('/home');
@@ -38,5 +29,9 @@ Route::prefix('campaign')->group(function (){
     Route::get('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasi'])->name('campaign.donasi');
     Route::post('/donasi/{id}' , [\App\Http\Controllers\campaignController::class , 'donasipost'])->name('campaign.donasi');
 
+});
+
+Route::prefix('information')->group(function () {
+    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
 });
 
