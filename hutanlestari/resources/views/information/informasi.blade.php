@@ -27,52 +27,36 @@
                       Berikut Ini Contoh Flora khas Indonesia yang Langka & Terancam punah,  
                       Yuk Kita Jaga!
                   </h5>
+
+                  @if(\Illuminate\Support\Facades\Auth::check())
+                  @if(\Illuminate\Support\Facades\Auth::user()->role == "admin")
+                      <a href="{{route('admin.informasifloraform')}}" class="btn btn-success"> Tambah Flora</a>
+                  @else
+  
+                      @endif
+              @endif
       
                   <div class="row">
                       <div class="col"></div>
+                      @foreach($flora as $f)
                       <div class="col-3">
-                        <a href="" style="text-decoration: none;color: black" >
+                        <a href="{{route('informasi.flora' , ['id'=>$f->id])}}" style="text-decoration: none;color: black" >
                               <div class="card bg-sakti">
-                              <div class="card-body">
-                                  <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
-                                  <h5 class="mb-3">Kantong semar (Nepenthes)</h5>
-                                  <p>
-                                      Kantong semar adalah salah satu tumbuhan langka yang perlu dilestarikan. Kantong semar punya bentuk yang unik karena akan membuka dan memangsa serangga di sekitarnya saat dewasa.
-                                  </p>
-                              </div>
-                          </div>
-                          </a>
-                      </div>
-                      <div class="col-3">
-                        <a href="" style="text-decoration: none;color: black" >
-                              <div class="card bg-sakti">
-                                  <div class="card-body">
-                                      <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
-                                      <h5 class="mb-3">Kantong semar (Nepenthes)</h5>
-                                      <p>
-                                          Kantong semar adalah salah satu tumbuhan langka yang perlu dilestarikan. Kantong semar punya bentuk yang unik karena akan membuka dan memangsa serangga di sekitarnya saat dewasa.
-                                      </p>
-                                  </div>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="col-3">
-                        <a href="" style="text-decoration: none;color: black" >
-                              <div class="card bg-sakti">
-                                  <div class="card-body">
-                                      <img class="img d-block mx-auto" src="{{asset('gmbr/semar.png')}}">
-                                      <h5 class="mb-3">Kantong semar (Nepenthes)</h5>
-                                      <p>
-                                          Kantong semar adalah salah satu tumbuhan langka yang perlu dilestarikan. Kantong semar punya bentuk yang unik karena akan membuka dan memangsa serangga di sekitarnya saat dewasa.
-                                      </p>
-                                  </div>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="col"></div>
-                  </div>
-              </div>
-          </div>
+                              <div class="card-body p-3" style="height: 350px;overflow: hidden" >
+                                <img class="img d-block mx-auto rounded-circle w-50" src="{{asset('informasifloraimage/'.$f->gambar)}}">
+                                <h5 class="mb-3">{{$f->nama_flora}}</h5>
+                                <p>
+                                    {{$f->deskripsi}}
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    @endforeach
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
 
 
       {{-- info fauna --}}
