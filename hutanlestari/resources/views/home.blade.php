@@ -29,7 +29,7 @@
 
                 <div class="card w-50 mx-3">
                     <div class="card-header">
-                        <h5 class="text-success text-center">Volunteer</h5>
+                        <h5 class="text-success text-center">Relawan</h5>
                     </div>
                     <div class="card-body" style="height: 200px">
 
