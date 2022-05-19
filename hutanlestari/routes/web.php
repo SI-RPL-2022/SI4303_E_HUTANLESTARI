@@ -40,5 +40,23 @@ Route::prefix('campaign')->group(function () {
 
 Route::prefix('information')->group(function () {
     Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
+    Route::get('/flora/{id}', [\App\Http\Controllers\informationController::class, 'flora'])->name('informasi.flora');
+    Route::get('/fauna/{id}', [\App\Http\Controllers\informationController::class, 'fauna'])->name('informasi.fauna');
 });
 
+Route::prefix('admin')->group(function () {
+    Route::get('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaform'])->name('admin.informasifaunaform');
+    Route::post('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaformpost'])->name('admin.informasifaunaform');
+    Route::get('/input/deleteinformasifauna/{id}', [\App\Http\Controllers\adminController::class, 'deleteinfromasifauna'])->name('admin.deleteinfromasifauna');
+    Route::get('/input/deleteinformasiflora/{id}', [\App\Http\Controllers\adminController::class, 'deleteinformasiflora'])->name('admin.deleteinformasiflora');
+
+    Route::get('/input/informasifaunaedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifaunaedit'])->name('admin.informasifaunaedit');
+
+    Route::post('/input/informasifaunaedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifaunaeditpost'])->name('admin.informasifaunaeditpost');
+
+
+    Route::get('/input/informasiflora', [\App\Http\Controllers\adminController::class, 'informasifloraform'])->name('admin.informasifloraform');
+    Route::get('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraedit'])->name('admin.informasifloraedit');
+    Route::post('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraeditpost'])->name('admin.informasifloraeditpost');
+    Route::post('/input/informasiflora', [\App\Http\Controllers\adminController::class, 'informasifloraformpost'])->name('admin.informasifloraform');
+});
