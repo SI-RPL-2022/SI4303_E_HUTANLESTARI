@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Campaign;
-use Illuminate\Http\Request;
 use App\Models\Donasi;
+use App\Models\Volunteer;
+use Illuminate\Http\Request;
+use App\Models\Campaign;
 use Illuminate\Support\Facades\Auth;
 
 class campaignController extends Controller
@@ -82,6 +83,25 @@ class campaignController extends Controller
         $x->save();
 
         return redirect()->route('campaign.index');
+    }
 
+    public function volunteer($id){
+        $data = Campaign::find($id);
+        return view('campaign.volunteer' , ['data'=>$data]);
+    }
+
+    public function volunteerpost($id , Request  $request){
+        $tes = new Volunteer();
+        $tes->user_id = Auth::id();
+        $tes->campaign_id = $id;
+        $tes->nama_depan = $request->nama_depan;
+        $tes->nama_belakang = $request->nama_belakang;
+        $tes->skill = $request->skill;
+        $tes->pengalaman = $request->pengalaman;
+        $tes->domisili = $request->domisili;
+        $tes->verifikasi_check  = 0;
+        $tes->save();
+
+        return redirect()->route('campaign.index');
     }
 }

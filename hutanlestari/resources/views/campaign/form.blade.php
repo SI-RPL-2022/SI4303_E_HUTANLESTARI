@@ -50,6 +50,11 @@
                                 <input type="number" name="target" class="form-control">
                             </div>
 
+                            <div class="form-group mb-3 " id="volunteerdiv" style="display: none">
+                                <label for="desc">Target Volunteer</label>
+                                <input type="number" name="targetvolun" class="form-control">
+                            </div>
+
                             <div class="custom-file mb-3">
                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="file" required>
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>

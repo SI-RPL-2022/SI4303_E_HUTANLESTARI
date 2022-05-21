@@ -36,6 +36,8 @@ Route::prefix('campaign')->group(function () {
     Route::get('/detail/{id}', [\App\Http\Controllers\campaignController::class, 'detail'])->name('campaign.detail');
     Route::post('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasipost'])->name('campaign.donasi');
     Route::get('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasi'])->name('campaign.donasi');
+    Route::get('/volunteer/{id}' , [\App\Http\Controllers\campaignController::class , 'volunteer'])->name('campaign.volunteer')->middleware(['auth']);
+    Route::post('/volunteer/{id}' , [\App\Http\Controllers\campaignController::class , 'volunteerpost'])->name('campaign.volunteer')->middleware(['auth']);
 });
 
 Route::prefix('information')->group(function () {

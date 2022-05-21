@@ -115,7 +115,6 @@ class adminController extends Controller
         $data->judul_informasi = $request->judul_informasi;
 
         //        upload file
-
         if ($request->file != null) {
             $file = $request->file('file');
 
@@ -141,8 +140,6 @@ class adminController extends Controller
         $data->judul_informasi = $request->judul_informasi;
 
         //        upload file
-
-
         $file = $request->file('file');
 
         $nama_file = time() . "_" . $file->getClientOriginalName();
