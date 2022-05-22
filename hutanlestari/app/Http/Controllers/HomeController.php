@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donasi;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $volunteer = Volunteer::latest()->take(5)->Get();
+        return view('home',['volun'=>$volunteer]);
+    }
+
+    public function searchVolunteer(Request $request){
+
+        $test= $request->search;
+        $volunteer = Volunteer::where('nama_depan' , 'like' , '%'.$test.'%')->get();
+        return view('home' , ['volun'=>$volunteer]);
     }
 }

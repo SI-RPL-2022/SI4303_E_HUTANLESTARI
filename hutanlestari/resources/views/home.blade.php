@@ -15,12 +15,12 @@
     <div class="container-fluid p-3 mb-3">
             <div class="container">
                 <h4 class="text-center text-success mb-3">
-                    Donasi dan Relawan
+                    Donation and Volunteer
                 </h4>
                 <div class="d-flex justify-content-center">
                 <div class="card w-50 mx-3">
                     <div class="card-header">
-                        <h5 class="text-success text-center">Donasi</h5>
+                        <h5 class="text-success text-center">Donation</h5>
                     </div>
                     <div class="card-body" style="height: 200px">
 
@@ -29,10 +29,25 @@
 
                 <div class="card w-50 mx-3">
                     <div class="card-header">
-                        <h5 class="text-success text-center">Relawan</h5>
+                        <h5 class="text-success text-center">Volunteer</h5>
+                        <form action="{{ route('searchvolunteer') }}" method="post" class="d-flex">
+                            @csrf
+                            @method('post')
+                            <input type="text" class="form-control" name="search">
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </form>    
                     </div>
-                    <div class="card-body" style="height: 200px">
-
+                    <div class="card-body" style="height: 200px ; overflow:scroll">
+                        @foreach ($volun as $t)
+                            <div class="d-flex flex-wrap pl-5 mt-2">
+                                <img src="{{ asset('gmbr/img.png') }}" style="width: 70px ; height:70px" alt="">
+                                <div class="ml-3">
+                                    <h5>{{ $t->nama_depan }}</h5>
+                                    <p class="text-black-50">Telah bergabung tanggal {{ $t->created_at }}</p>
+                                    <hr>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

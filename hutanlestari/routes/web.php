@@ -28,6 +28,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/homev', [App\Http\Controllers\HomeController::class, 'searchVolunteer'])->name('searchvolunteer');
 
 Route::prefix('campaign')->group(function () {
     Route::get('/index', [\App\Http\Controllers\campaignController::class, 'index'])->name('campaign.index');
