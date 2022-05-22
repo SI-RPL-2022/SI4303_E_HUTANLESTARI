@@ -65,4 +65,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraedit'])->name('admin.informasifloraedit');
     Route::post('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraeditpost'])->name('admin.informasifloraeditpost');
     Route::post('/input/informasiflora', [\App\Http\Controllers\adminController::class, 'informasifloraformpost'])->name('admin.informasifloraform');
+
+    Route::get('/verifikasiflora', [\App\Http\Controllers\adminController::class, 'verifikasiflora'])->name('admin.verifflora');
+    Route::get('verifikasiflora/{id}', [\App\Http\Controllers\adminController::class, 'verifflorapost'])->name('admin.verifflorapost');
+    Route::get('tolakflora/{id}', [\App\Http\Controllers\adminController::class, 'tolakflora'])->name('admin.tolakflora');
 });
