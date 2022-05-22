@@ -154,4 +154,31 @@ class adminController extends Controller
 
         return redirect(route('informasi.index'));
     }
+
+
+    // verif donasi flora fauna
+    public function verifikasiflora()
+    {
+        $data = Florafauna::orderBy('created_at', 'DESC')->get();
+
+        return view('admin.verifflora', ['data' => $data]);
+    }
+
+    public function verifflorapost($id)
+    {
+        $data = Florafauna::find($id);
+        $data->verifikasi_check = 1;
+        $data->update();
+
+        return redirect()->back();
+    }
+
+    public function tolakflora($id)
+    {
+        $data = Florafauna::find($id);
+        $data->verifikasi_check = 1;
+        $data->delete();
+
+        return redirect()->back();
+    }
 }
