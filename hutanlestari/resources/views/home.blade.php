@@ -47,10 +47,6 @@
                             <button type="submit" class="btn btn-success">Search</button>
                         </form>    
                     </div>
-<<<<<<< HEAD
-                    <div class="card-body" style="height: 200px ; overflow: scroll">
-
-=======
                     <div class="card-body" style="height: 200px ; overflow:scroll">
                         @foreach ($volun as $t)
                             <div class="d-flex flex-wrap pl-5 mt-2">
@@ -62,7 +58,6 @@
                                 </div>
                             </div>
                         @endforeach
->>>>>>> 921e928cab8c059f4e4d048f5cfee078720f1017
                     </div>
                 </div>
             </div>
