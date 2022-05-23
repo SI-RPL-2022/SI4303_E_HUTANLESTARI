@@ -33,7 +33,7 @@
                     <div class="col-1"></div>
                     @if($data->volunteer_check != 0)
                     <div class="col">
-                        <a class="w-100 btn btn-success">Volunteer</a>
+                        <a href="{{route('campaign.volunteer' , ['id'=>$data->id])}}" class="w-100 btn btn-success">Volunteer</a>
                     </div>
                     @else
                         <div class="col"></div>

@@ -115,7 +115,6 @@ class adminController extends Controller
         $data->judul_informasi = $request->judul_informasi;
 
         //        upload file
-
         if ($request->file != null) {
             $file = $request->file('file');
 
@@ -141,8 +140,6 @@ class adminController extends Controller
         $data->judul_informasi = $request->judul_informasi;
 
         //        upload file
-
-
         $file = $request->file('file');
 
         $nama_file = time() . "_" . $file->getClientOriginalName();
@@ -156,5 +153,32 @@ class adminController extends Controller
         $data->save();
 
         return redirect(route('informasi.index'));
+    }
+
+
+    // verif donasi flora fauna
+    public function verifikasiflora()
+    {
+        $data = Florafauna::orderBy('created_at', 'DESC')->get();
+
+        return view('admin.verifflora', ['data' => $data]);
+    }
+
+    public function verifflorapost($id)
+    {
+        $data = Florafauna::find($id);
+        $data->verifikasi_check = 1;
+        $data->update();
+
+        return redirect()->back();
+    }
+
+    public function tolakflora($id)
+    {
+        $data = Florafauna::find($id);
+        $data->verifikasi_check = 1;
+        $data->delete();
+
+        return redirect()->back();
     }
 }

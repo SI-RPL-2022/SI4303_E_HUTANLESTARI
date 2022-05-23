@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Campaign;
-use Illuminate\Http\Request;
 use App\Models\Donasi;
+use App\Models\Volunteer;
+use Illuminate\Http\Request;
+use App\Models\Campaign;
 use Illuminate\Support\Facades\Auth;
 
 class campaignController extends Controller
@@ -27,19 +28,21 @@ class campaignController extends Controller
         $data->deskripsi_campaign = $request->desc;
         if ($request->volunteer != null){
             $data->volunteer_check = 1;
+            $data->target_volunteer = $request->targetvolun;
         }else {
             $data->volunteer_check = 0;
         }
 
         if ($request->donasi != null){
             $data->donation_check = 1;
+            $data->target = $request->target;
         }else {
             $data->donation_check = 0;
         }
 
         $data->start_date = $request->startdate;
         $data->end_date = $request->enddate;
-        $data->target = $request->target;
+
         $data->verifikasi_check = 0;
 
 
@@ -53,6 +56,7 @@ class campaignController extends Controller
 
         $data->img = $nama_file;
         $data->donasi_terkini = 0;
+        $data->volunteer_terkini = 0;
         $data->save();
 
 
@@ -75,6 +79,7 @@ class campaignController extends Controller
         $data->campaign_id = $id;
         $data->jumlah_donasi = $request->nominal;
         $data->verifikasi_check = 0 ;
+        $data->pesan = $request->pesan;
         $data->save();
 
         $x = Campaign::find($id);
@@ -82,6 +87,25 @@ class campaignController extends Controller
         $x->save();
 
         return redirect()->route('campaign.index');
+    }
 
+    public function volunteer($id){
+        $data = Campaign::find($id);
+        return view('campaign.volunteer' , ['data'=>$data]);
+    }
+
+    public function volunteerpost($id , Request  $request){
+        $tes = new Volunteer();
+        $tes->user_id = Auth::id();
+        $tes->campaign_id = $id;
+        $tes->nama_depan = $request->nama_depan;
+        $tes->nama_belakang = $request->nama_belakang;
+        $tes->skill = $request->skill;
+        $tes->pengalaman = $request->pengalaman;
+        $tes->domisili = $request->domisili;
+        $tes->verifikasi_check  = 0;
+        $tes->save();
+
+        return redirect()->route('campaign.index');
     }
 }
