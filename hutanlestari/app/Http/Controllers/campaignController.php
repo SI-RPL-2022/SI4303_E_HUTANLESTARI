@@ -28,19 +28,21 @@ class campaignController extends Controller
         $data->deskripsi_campaign = $request->desc;
         if ($request->volunteer != null){
             $data->volunteer_check = 1;
+            $data->target_volunteer = $request->targetvolun;
         }else {
             $data->volunteer_check = 0;
         }
 
         if ($request->donasi != null){
             $data->donation_check = 1;
+            $data->target = $request->target;
         }else {
             $data->donation_check = 0;
         }
 
         $data->start_date = $request->startdate;
         $data->end_date = $request->enddate;
-        $data->target = $request->target;
+
         $data->verifikasi_check = 0;
 
 
@@ -54,6 +56,7 @@ class campaignController extends Controller
 
         $data->img = $nama_file;
         $data->donasi_terkini = 0;
+        $data->volunteer_terkini = 0;
         $data->save();
 
 
@@ -76,6 +79,7 @@ class campaignController extends Controller
         $data->campaign_id = $id;
         $data->jumlah_donasi = $request->nominal;
         $data->verifikasi_check = 0 ;
+        $data->pesan = $request->pesan;
         $data->save();
 
         $x = Campaign::find($id);
