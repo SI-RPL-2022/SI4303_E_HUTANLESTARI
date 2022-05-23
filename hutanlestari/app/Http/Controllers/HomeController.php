@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
 use App\Models\Donasi;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
+     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -24,6 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $donasi = Donasi::latest()->take(5)->get();
+        $campaign = Campaign::latest()->take(1)->get();
+        return view('home' , ['donasi'=>$donasi , 'campaign'=>$campaign]);
     }
 }
