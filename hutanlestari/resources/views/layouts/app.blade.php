@@ -68,6 +68,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>
                             </li>
+
+                            <li class="nav-item" style="width: 200px">
+                                <a class="nav-link" href="{{route('campaign.donasiflorafauna')}}">Donasi Flora & Fauna</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

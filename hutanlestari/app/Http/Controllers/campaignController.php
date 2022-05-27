@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donasi;
+use App\Models\Florafauna;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
@@ -10,33 +11,42 @@ use Illuminate\Support\Facades\Auth;
 
 class campaignController extends Controller
 {
-    public function form(){
+    public function form()
+    {
         return view('campaign.form');
     }
 
-    public function index(){
-        $data = Campaign::latest()->take(3)->get();
-        $pagi = Campaign::paginate(9);
-        return view('campaign.index' , ['data'=>$data , 'pag' => $pagi]);
+    public function donasiflorafauna()
+    {
+        return view('campaign.donasiflorafauna');
     }
 
-    public function formpost(Request $request){
+
+    public function index()
+    {
+        $data = Campaign::latest()->take(3)->get();
+        $pagi = Campaign::paginate(9);
+        return view('campaign.index', ['data' => $data, 'pag' => $pagi]);
+    }
+
+    public function formpost(Request $request)
+    {
 
 
         $data = new Campaign();
         $data->nama_campaign = $request->name;
         $data->deskripsi_campaign = $request->desc;
-        if ($request->volunteer != null){
+        if ($request->volunteer != null) {
             $data->volunteer_check = 1;
             $data->target_volunteer = $request->targetvolun;
-        }else {
+        } else {
             $data->volunteer_check = 0;
         }
 
-        if ($request->donasi != null){
+        if ($request->donasi != null) {
             $data->donation_check = 1;
             $data->target = $request->target;
-        }else {
+        } else {
             $data->donation_check = 0;
         }
 
@@ -46,13 +56,13 @@ class campaignController extends Controller
         $data->verifikasi_check = 0;
 
 
-        
+
         $file = $request->file('file');
 
-        $nama_file = time()."_".$file->getClientOriginalName();
+        $nama_file = time() . "_" . $file->getClientOriginalName();
 
         $tujuan_upload = 'campaignimage';
-        $file->move($tujuan_upload,$nama_file);
+        $file->move($tujuan_upload, $nama_file);
 
         $data->img = $nama_file;
         $data->donasi_terkini = 0;
@@ -63,22 +73,25 @@ class campaignController extends Controller
         return redirect()->back();
     }
 
-    public function detail($id){
+    public function detail($id)
+    {
         $data = Campaign::find($id);
-        return view('campaign.detail',['data'=>$data]);
+        return view('campaign.detail', ['data' => $data]);
     }
 
-    public function donasi($id){
+    public function donasi($id)
+    {
         $data = Campaign::find($id);
-        return view('campaign.donasi',['data'=>$data]);
+        return view('campaign.donasi', ['data' => $data]);
     }
 
-    public function donasipost($id , Request  $request){
+    public function donasipost($id, Request  $request)
+    {
         $data = new Donasi();
         $data->user_id = Auth::user()->id;
         $data->campaign_id = $id;
         $data->jumlah_donasi = $request->nominal;
-        $data->verifikasi_check = 0 ;
+        $data->verifikasi_check = 0;
         $data->pesan = $request->pesan;
         $data->save();
 
@@ -89,12 +102,14 @@ class campaignController extends Controller
         return redirect()->route('campaign.index');
     }
 
-    public function volunteer($id){
+    public function volunteer($id)
+    {
         $data = Campaign::find($id);
-        return view('campaign.volunteer' , ['data'=>$data]);
+        return view('campaign.volunteer', ['data' => $data]);
     }
 
-    public function volunteerpost($id , Request  $request){
+    public function volunteerpost($id, Request  $request)
+    {
         $tes = new Volunteer();
         $tes->user_id = Auth::id();
         $tes->campaign_id = $id;
