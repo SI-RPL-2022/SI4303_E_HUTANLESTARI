@@ -73,6 +73,46 @@ class campaignController extends Controller
         return redirect()->back();
     }
 
+    public function florafaunapost(Request $request)
+    {
+
+
+        $data = new Florafauna();
+        $data->user_id = Auth::user()->id;
+        $data->nama_pengirim = $request->name;
+        $data->email = Auth::user()->email;
+        if ($request->fauna_check != null && $request->floracheck != null) {
+            $data->tipe_donasi = 'Flora Dan Fauna';
+        } elseif ($request->fauna_check != null) {
+            $data->tipe_donasi = 'Fauna';
+        } else {
+            $data->tipe_donasi = 'Flora';
+        }
+
+        $data->nama_flora = $request->nameflora;
+        $data->tipe_pengiriman = $request->pengiriman;
+        $data->tanggal_pengiriman = $request->tglpengiriman;
+
+        $data->verifikasi_check = 0;
+        //        upload file
+
+
+        $file = $request->file('file');
+
+        $nama_file = time() . "_" . $file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'florafaunaimg';
+        $file->move($tujuan_upload, $nama_file);
+
+        $data->img = $nama_file;
+
+        $data->save();
+
+
+        return redirect()->back();
+    }
+
     public function detail($id)
     {
         $data = Campaign::find($id);
