@@ -30,6 +30,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/homev', [App\Http\Controllers\HomeController::class, 'searchVolunteer'])->name('searchvolunteer');
 
+
+
 Route::prefix('campaign')->group(function () {
     Route::get('/index', [\App\Http\Controllers\campaignController::class, 'index'])->name('campaign.index');
     Route::get('/formcampaign', [\App\Http\Controllers\campaignController::class, 'form'])->name('campaign.form');
@@ -50,6 +52,8 @@ Route::prefix('information')->group(function () {
     Route::get('/fauna/{id}', [\App\Http\Controllers\informationController::class, 'fauna'])->name('informasi.fauna');
 });
 
+
+
 Route::prefix('admin')->group(function () {
     Route::get('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaform'])->name('admin.informasifaunaform');
     Route::post('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaformpost'])->name('admin.informasifaunaform');
@@ -69,4 +73,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/verifikasiflora', [\App\Http\Controllers\adminController::class, 'verifikasiflora'])->name('admin.verifflora');
     Route::get('verifikasiflora/{id}', [\App\Http\Controllers\adminController::class, 'verifflorapost'])->name('admin.verifflorapost');
     Route::get('tolakflora/{id}', [\App\Http\Controllers\adminController::class, 'tolakflora'])->name('admin.tolakflora');
+});
+
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/florafauna', [\App\Http\Controllers\dashboardController::class, 'flora'])->name('dashboard.flora');
 });

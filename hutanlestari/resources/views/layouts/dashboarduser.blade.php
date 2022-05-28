@@ -172,13 +172,13 @@
             </div>
             <div class="col-7 p-3">
                 <div class="d-flex align-items-center">
-                    <a href="{{route('dashboard.volun')}}" class="btn btn-success text-black mx-1" > Campaign</a>
+                    <a href="#" class="btn btn-success text-black mx-1" > Campaign</a>
 
-                    <a href="{{route('dashboard.dana')}}" class="btn btn-success text-black mx-1"> Donasi Dana</a>
+                    <a href="#" class="btn btn-success text-black mx-1"> Donasi Dana</a>
 
                     <a href="{{route('dashboard.flora')}}" class="btn btn-success text-black mx-1"> Donasi Flora atau fauna </a>
 
-                    <a href="{{route('dashboard.blog')}}" class="btn btn-success text-black mx-1"> Blog Saya</a>
+                    <a href="#" class="btn btn-success text-black mx-1"> Blog Saya</a>
 
                 </div>
 
@@ -203,14 +203,14 @@
         </div>
 
         <div class="col-2">
-            <a href="{{route('ourteam')}}" class="text-success">Tentang Kami</a> <br>
-            <a href="{{route('ourteam')}}" class="text-success">Profil Kami</a><br>
-            <a href="{{route('ourteam')}}" class="text-success">Kontak</a>
+            <a href="#" class="text-success">Tentang Kami</a> <br>
+            <a href="#" class="text-success">Profil Kami</a><br>
+            <a href="#" class="text-success">Kontak</a>
         </div>
 
         <div class="col-2">
-            <a href="{{route('feedback')}}" class="text-success">Feedback</a><br>
-            <a href="{{route('ourteam')}}" class="text-success">Customer Service</a>
+            <a href="#" class="text-success">Feedback</a><br>
+            <a href="#" class="text-success">Customer Service</a>
         </div>
     </div>
 </div>
