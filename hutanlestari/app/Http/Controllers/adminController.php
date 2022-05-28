@@ -155,6 +155,58 @@ class adminController extends Controller
         return redirect(route('informasi.index'));
     }
 
+    // Verifikasi Donasi Dana
+    public function verifdana(){
+        $data = Donasi::orderBy('created_at' , 'DESC')->get();
+        return view('admin.verifdonasi' , ['data' => $data]);
+    }
+
+    
+    public function verifdanapost($id){
+        $data = Donasi::find($id);
+        $data->verifikasi_check = 1;
+        $data->update();
+
+        $ya = Campaign::find($data->campaign_id);
+        $ya->donasi_terkini = $ya->donasi_terkini + $data->jumlah_donasi;
+        $ya->update();
+
+        return redirect()->back();
+
+    }
+
+    public function tolakdana($id){
+        $data = Donasi::find($id);
+        $data->delete();
+
+        return redirect()->back();
+    }
+
+    //Verifikasi Volunteer yang dibuat
+    public function verifvolun(){
+        $data = Volunteer::orderBy('created_at' , 'DESC')->get();
+        return view('admin.verifvolun' , ['data' => $data]);
+    }
+
+    public function verifvolunpost($id){
+
+        $data = Volunteer::find($id);
+        $data->verifikasi_check = 1;
+        $data->update();
+
+        $ya = Campaign::find($data->campaign_id);
+        $ya->volunteer_terkini = $ya->volunteer_terkini + 1;
+        $ya->update();
+
+        return redirect()->back();
+    }
+
+    public function tolakvolun($id){
+        $data = Volunteer::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
 
     // verif donasi flora fauna
     public function verifikasiflora()

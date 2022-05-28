@@ -114,16 +114,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{route('dashboard.volun')}}" class="dropdown-item">
                                         Dashboard
                                     </a>
 
                                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
-                                        <a href="#" class="dropdown-item">
-                                            Dashborad admin
+                                        <a href="{{route('admin.verifdana')}}" class="dropdown-item">
+                                            Dashbord admin
                                         </a>
                                         @endif
-
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
