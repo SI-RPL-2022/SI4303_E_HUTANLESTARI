@@ -36,7 +36,25 @@
             background: rgb(255,255,255);
             background: linear-gradient(142deg, rgba(255,255,255,1) 75%, rgba(255,231,0,1) 100%, rgba(0,212,255,1) 100%);
         }
+
+
+        .ldBar path.mainline {
+            stroke-width: 10;
+            stroke: #09f;
+            stroke-linecap: round;
+        }
+        .ldBar path.baseline {
+            stroke-width: 14;
+            stroke: red;
+            stroke-linecap: round;
+            filter:url(#custom-shadow);
+        }
+
     </style>
+
+
+
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -68,6 +86,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Blog</a>
                             </li>
+
+                            <li class="nav-item" style="width: 200px">
+                                <a class="nav-link" href="{{route('campaign.donasiflorafauna')}}">Donasi Flora & Fauna</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -92,6 +114,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{route('dashboard.volun')}}" class="dropdown-item">
+                                        Dashboard
+                                    </a>
+
+                                    @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
+                                        <a href="{{route('admin.verifdana')}}" class="dropdown-item">
+                                            Dashbord admin
+                                        </a>
+                                        @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -173,6 +205,29 @@
         </main>
     </div>
 
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-6">
+            <div class="d-flex align-items-center mb-4">
+                <img src="{{asset('gmbr/pohon.png')}}" width="50px" class="mr-3" alt="">
+                <h4>Hutan Lestari</h4>
+
+
+            </div>
+            <h5>Website Penggalangan Dana <br>Online untuk Konservasi Hutan,<br> Flora dan Fauna</h5>
+        </div>
+
+        <div class="col-2">
+            <a href="#" class="text-success">Tentang Kami</a> <br>
+            <a href="#" class="text-success">Profil Kami</a><br>
+            <a href="#" class="text-success">Kontak</a>
+        </div>
+
+        <div class="col-2">
+            <a href="#" class="text-success">Feedback</a><br>
+            <a href="#" class="text-success">Customer Service</a>
+        </div>
+    </div>
 
 @stack('script')
 </body>

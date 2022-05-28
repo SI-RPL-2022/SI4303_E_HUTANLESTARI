@@ -30,6 +30,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/homev', [App\Http\Controllers\HomeController::class, 'searchVolunteer'])->name('searchvolunteer');
 
+
+
 Route::prefix('campaign')->group(function () {
     Route::get('/index', [\App\Http\Controllers\campaignController::class, 'index'])->name('campaign.index');
     Route::get('/formcampaign', [\App\Http\Controllers\campaignController::class, 'form'])->name('campaign.form');
@@ -37,8 +39,11 @@ Route::prefix('campaign')->group(function () {
     Route::get('/detail/{id}', [\App\Http\Controllers\campaignController::class, 'detail'])->name('campaign.detail');
     Route::post('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasipost'])->name('campaign.donasi');
     Route::get('/donasi/{id}', [\App\Http\Controllers\campaignController::class, 'donasi'])->name('campaign.donasi');
-    Route::get('/volunteer/{id}' , [\App\Http\Controllers\campaignController::class , 'volunteer'])->name('campaign.volunteer')->middleware(['auth']);
-    Route::post('/volunteer/{id}' , [\App\Http\Controllers\campaignController::class , 'volunteerpost'])->name('campaign.volunteer')->middleware(['auth']);
+    Route::get('/volunteer/{id}', [\App\Http\Controllers\campaignController::class, 'volunteer'])->name('campaign.volunteer')->middleware(['auth']);
+    Route::post('/volunteer/{id}', [\App\Http\Controllers\campaignController::class, 'volunteerpost'])->name('campaign.volunteer')->middleware(['auth']);
+
+    Route::get('/donasiflorafauna', [\App\Http\Controllers\campaignController::class, 'donasiflorafauna'])->name('campaign.donasiflorafauna')->middleware(['auth']);
+    Route::post('/florafaunapost', [\App\Http\Controllers\campaignController::class, 'florafaunapost'])->name('campaign.florafaunapost');
 });
 
 Route::prefix('information')->group(function () {
@@ -47,7 +52,19 @@ Route::prefix('information')->group(function () {
     Route::get('/fauna/{id}', [\App\Http\Controllers\informationController::class, 'fauna'])->name('informasi.fauna');
 });
 
+
+
 Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\adminController::class, 'dashboard'])->name('admin.dashboard');
+
+    Route::get('/verifikasidana', [\App\Http\Controllers\adminController::class, 'verifdana'])->name('admin.verifdana');
+    Route::get('/verifikasidanapost/{id}', [\App\Http\Controllers\adminController::class, 'verifdanapost'])->name('admin.verifdanapost');
+    Route::get('/verifikasidanatolak/{id}', [\App\Http\Controllers\adminController::class, 'tolakdana'])->name('admin.tolakdana');
+
+    Route::get('/verifikasivoluntolak/{id}', [\App\Http\Controllers\adminController::class, 'tolakvolun'])->name('admin.tolakvolun');
+    Route::get('/verifikasivolunteer', [\App\Http\Controllers\adminController::class, 'verifvolun'])->name('admin.verifvolun');
+    Route::get('/verifikasivolunteerpost/{id}', [\App\Http\Controllers\adminController::class, 'verifvolunpost'])->name('admin.volunpost');
+
     Route::get('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaform'])->name('admin.informasifaunaform');
     Route::post('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaformpost'])->name('admin.informasifaunaform');
     Route::get('/input/deleteinformasifauna/{id}', [\App\Http\Controllers\adminController::class, 'deleteinfromasifauna'])->name('admin.deleteinfromasifauna');
@@ -62,4 +79,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraedit'])->name('admin.informasifloraedit');
     Route::post('/input/informasifloraedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifloraeditpost'])->name('admin.informasifloraeditpost');
     Route::post('/input/informasiflora', [\App\Http\Controllers\adminController::class, 'informasifloraformpost'])->name('admin.informasifloraform');
+
+    Route::get('/verifikasiflora', [\App\Http\Controllers\adminController::class, 'verifikasiflora'])->name('admin.verifflora');
+    Route::get('verifikasiflora/{id}', [\App\Http\Controllers\adminController::class, 'verifflorapost'])->name('admin.verifflorapost');
+    Route::get('tolakflora/{id}', [\App\Http\Controllers\adminController::class, 'tolakflora'])->name('admin.tolakflora');
+});
+
+
+Route::prefix('dashboard')->group(function () {
+    Route::get('/campaign', [\App\Http\Controllers\dashboardController::class, 'volun'])->name('dashboard.volun');
+    Route::get('/dana', [\App\Http\Controllers\dashboardController::class, 'dana'])->name('dashboard.dana');
+    Route::get('/florafauna', [\App\Http\Controllers\dashboardController::class, 'flora'])->name('dashboard.flora');
 });
