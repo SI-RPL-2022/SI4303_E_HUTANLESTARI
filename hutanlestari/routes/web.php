@@ -55,6 +55,8 @@ Route::prefix('information')->group(function () {
 
 
 Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\adminController::class, 'dashboard'])->name('admin.dashboard');
+
     Route::get('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaform'])->name('admin.informasifaunaform');
     Route::post('/input/informasifauna', [\App\Http\Controllers\adminController::class, 'informasifaunaformpost'])->name('admin.informasifaunaform');
     Route::get('/input/deleteinformasifauna/{id}', [\App\Http\Controllers\adminController::class, 'deleteinfromasifauna'])->name('admin.deleteinfromasifauna');

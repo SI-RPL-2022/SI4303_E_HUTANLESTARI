@@ -181,4 +181,7 @@ class adminController extends Controller
 
         return redirect()->back();
     }
+
+    // verif donasi dana (emas)
+
 }
