@@ -18,11 +18,13 @@ class CreateCampaignTable extends Migration
             $table->string('nama_campaign')->nullable();
             $table->string('deskripsi_campaign');
             $table->char('volunteer_check');
-            $table->char('donation_check');
+            $table->char('donation_check')->nullable();
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('target');
+            $table->integer('target')->nullable();
+            $table->integer('target_volunteer')->nullable();
             $table->integer('donasi_terkini');
+            $table->integer('volunteer_terkini');
             $table->char('verifikasi_check');
             $table->char('img');
             $table->timestamps();
