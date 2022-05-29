@@ -120,7 +120,7 @@
 
                                     @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
                                         <a href="{{route('admin.verifdana')}}" class="dropdown-item">
-                                            Dashbord admin
+                                            Verifikasi Admin
                                         </a>
                                         @endif
 
