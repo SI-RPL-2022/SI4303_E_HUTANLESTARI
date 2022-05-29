@@ -37,6 +37,9 @@ class HomeController extends Controller
 
         $test= $request->search;
         $volunteer = Volunteer::where('nama_depan' , 'like' , '%'.$test.'%')->get();
-        return view('home' , ['volun'=>$volunteer]);
+        
+        $donasi = Donasi::latest()->get();
+        $campaign = Campaign::latest()->take(1)->get();
+        return view('home' , ['donasi'=>$donasi , 'volun'=>$volunteer , 'campaign'=>$campaign]);
     }
 }
