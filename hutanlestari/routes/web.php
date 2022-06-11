@@ -91,3 +91,11 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/dana', [\App\Http\Controllers\dashboardController::class, 'dana'])->name('dashboard.dana');
     Route::get('/florafauna', [\App\Http\Controllers\dashboardController::class, 'flora'])->name('dashboard.flora');
 });
+
+Route::get('/ourteam', [\App\Http\Controllers\HomeController::class , 'aboutus'])
+    ->name('ourteam');
+
+Route::post('/tentangkami/post' , [\App\Http\Controllers\HomeController::class , 'tentangkamipost'])->name('admin.tentangkamipost');
+Route::post('/tentangkami/edit/{id}' , [\App\Http\Controllers\HomeController::class , 'edittentangkami'])->name('admin.tentangkamiedit');
+Route::get('/tentangkami/delete/{id}' , [\App\Http\Controllers\HomeController::class , 'deletetentangkami'])->name('admin.tentangkamidelete');
+

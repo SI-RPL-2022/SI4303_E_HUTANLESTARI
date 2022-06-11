@@ -218,9 +218,7 @@
         </div>
 
         <div class="col-2">
-            <a href="#" class="text-success">Tentang Kami</a> <br>
-            <a href="#" class="text-success">Profil Kami</a><br>
-            <a href="#" class="text-success">Kontak</a>
+            <a href="{{route('ourteam')}}" class="text-success">Tentang Kami</a>
         </div>
 
         <div class="col-2">
