@@ -18,6 +18,7 @@ class CreateDonasiTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('campaign_id');
             $table->integer('jumlah_donasi');
+            $table->char('pesan');
             $table->char('verifikasi_check');
             $table->timestamps();
         });
