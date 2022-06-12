@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::prefix('information')->group(function () {
-    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
-    Route::get('/flora/{id}', [\App\Http\Controllers\informationController::class, 'flora'])->name('informasi.flora');
-    Route::get('/fauna/{id}', [\App\Http\Controllers\informationController::class, 'fauna'])->name('informasi.fauna');
-});
-
 Route::get('/', function () {
     return redirect('/home');
 });
@@ -28,9 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'searchDonasi'])->name('searchDonasi');
 Route::post('/homev', [App\Http\Controllers\HomeController::class, 'searchVolunteer'])->name('searchvolunteer');
 
 
+Route::prefix('information')->group(function () {
+    Route::get('/informasi', [\App\Http\Controllers\informationController::class, 'index'])->name('informasi.index');
+    Route::get('/flora/{id}', [\App\Http\Controllers\informationController::class, 'flora'])->name('informasi.flora');
+    Route::get('/fauna/{id}', [\App\Http\Controllers\informationController::class, 'fauna'])->name('informasi.fauna');
+});
 
 Route::prefix('campaign')->group(function () {
     Route::get('/index', [\App\Http\Controllers\campaignController::class, 'index'])->name('campaign.index');
@@ -86,10 +84,16 @@ Route::prefix('admin')->group(function () {
 });
 
 
-Route::prefix('dashboard')->group(function () {
-    Route::get('/campaign', [\App\Http\Controllers\dashboardController::class, 'volun'])->name('dashboard.volun');
-    Route::get('/dana', [\App\Http\Controllers\dashboardController::class, 'dana'])->name('dashboard.dana');
-    Route::get('/florafauna', [\App\Http\Controllers\dashboardController::class, 'flora'])->name('dashboard.flora');
+Route::prefix('dashboard')->group(function (){
+    Route::get('/campaign' , [\App\Http\Controllers\dashboardController::class , 'volun'])->name('dashboard.volun');
+    Route::get('/dana' , [\App\Http\Controllers\dashboardController::class , 'dana'])->name('dashboard.dana');
+    Route::get('/florafauna' , [\App\Http\Controllers\dashboardController::class , 'flora'])->name('dashboard.flora');
+    Route::get('/settingss' , [\App\Http\Controllers\dashboardController::class , 'setting'])->name('settings');
+    Route::post('/settings/{id}' , [\App\Http\Controllers\dashboardController::class , 'settings'])->name('settingspost');
+    Route::get('/changepassword' , [\App\Http\Controllers\dashboardController::class , 'changepassword'])->name('changepassword');
+    Route::post('/changepassword' , [\App\Http\Controllers\dashboardController::class , 'changepasswordpost'])->name('changepassword');
+    // Route::get('/blog' , [\App\Http\Controllers\dashboardController::class , 'blog'])->name('dashboard.blog');
+
 });
 
 Route::get('/ourteam', [\App\Http\Controllers\HomeController::class , 'aboutus'])
