@@ -222,7 +222,7 @@
         </div>
 
         <div class="col-2">
-            <a href="#" class="text-success">Feedback</a><br>
+            <a href="{{route('feedback')}}" class="text-success">Feedback</a><br>
             <a href="#" class="text-success">Customer Service</a>
         </div>
     </div>

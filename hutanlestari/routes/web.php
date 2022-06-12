@@ -99,3 +99,5 @@ Route::post('/tentangkami/post' , [\App\Http\Controllers\HomeController::class ,
 Route::post('/tentangkami/edit/{id}' , [\App\Http\Controllers\HomeController::class , 'edittentangkami'])->name('admin.tentangkamiedit');
 Route::get('/tentangkami/delete/{id}' , [\App\Http\Controllers\HomeController::class , 'deletetentangkami'])->name('admin.tentangkamidelete');
 
+Route::get('/feedback' , [\App\Http\Controllers\dashboardController::class , 'feedback'])->name('feedback');
+Route::post('/feedback' , [\App\Http\Controllers\dashboardController::class , 'feedbackpost'])->name('feedback');

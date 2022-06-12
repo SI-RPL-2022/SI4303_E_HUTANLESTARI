@@ -27,7 +27,7 @@
                             <div class="d-flex flex-wrap pl-5 mt-2">
                                 <img src="{{asset('gmbr/img.png')}}" style="width: 70px ; height: 70px" alt="">
                                 <div class="ml-3">
-                                <h5>{{$t->users->name}}</h5>
+                                <h5>{{$t->users->username}}</h5>
                                     <p class="text-black-50">Telah Berdonasi Sejumlah Rp{{$t->jumlah_donasi}}</p>
                                     <hr>
                                 </div>
