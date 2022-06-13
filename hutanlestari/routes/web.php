@@ -92,7 +92,7 @@ Route::prefix('dashboard')->group(function (){
     Route::post('/settings/{id}' , [\App\Http\Controllers\dashboardController::class , 'settings'])->name('settingspost');
     Route::get('/changepassword' , [\App\Http\Controllers\dashboardController::class , 'changepassword'])->name('changepassword');
     Route::post('/changepassword' , [\App\Http\Controllers\dashboardController::class , 'changepasswordpost'])->name('changepassword');
-    // Route::get('/blog' , [\App\Http\Controllers\dashboardController::class , 'blog'])->name('dashboard.blog');
+    Route::get('/blog' , [\App\Http\Controllers\dashboardController::class , 'blog'])->name('dashboard.blog');
 
 });
 
