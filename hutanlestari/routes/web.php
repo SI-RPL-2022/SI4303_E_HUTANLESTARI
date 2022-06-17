@@ -55,6 +55,8 @@ Route::prefix('information')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\adminController::class, 'dashboard'])->name('admin.dashboard');
 
+    Route::get('/feedback' , [\App\Http\Controllers\adminController::class , 'feedback'])->name('admin.feedback');
+
     Route::get('/verifikasidana', [\App\Http\Controllers\adminController::class, 'verifdana'])->name('admin.verifdana');
     Route::get('/verifikasidanapost/{id}', [\App\Http\Controllers\adminController::class, 'verifdanapost'])->name('admin.verifdanapost');
     Route::get('/verifikasidanatolak/{id}', [\App\Http\Controllers\adminController::class, 'tolakdana'])->name('admin.tolakdana');

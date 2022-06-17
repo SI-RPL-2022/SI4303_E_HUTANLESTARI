@@ -176,6 +176,8 @@
                     <a href="#" class="btn btn-success text-black mx-1"> Verifikasi  <br> Campaign</a>
 
                     <a href="#" class="btn btn-success text-black mx-1"> Verifikasi  <br> Blog</a>
+
+                    <a href="{{route('admin.feedback')}}" class="btn btn-success text-black mx-1"> List  <br> Feedback</a>
                 </div>
 
                 @yield('content')

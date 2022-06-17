@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Campaign;
 use App\Models\Donasi;
+use App\Models\Feedback;
 use App\Models\Florafauna;
 use App\Models\InformasiFauna;
 use App\Models\InformasiFlora;
@@ -236,4 +237,8 @@ class adminController extends Controller
 
     // verif donasi dana (emas)
 
+    public function feedback(){
+        $data = Feedback::all();
+        return view('admin.feedback' , ['data'=>$data]);
+    }
 }
