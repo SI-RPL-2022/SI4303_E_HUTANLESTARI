@@ -102,6 +102,7 @@ Route::prefix('dashboard')->group(function (){
 
 });
 
+
 Route::get('/ourteam', [\App\Http\Controllers\HomeController::class , 'aboutus'])
     ->name('ourteam');
 
