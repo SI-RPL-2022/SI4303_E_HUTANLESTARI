@@ -70,6 +70,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/input/deleteinformasifauna/{id}', [\App\Http\Controllers\adminController::class, 'deleteinfromasifauna'])->name('admin.deleteinfromasifauna');
     Route::get('/input/deleteinformasiflora/{id}', [\App\Http\Controllers\adminController::class, 'deleteinformasiflora'])->name('admin.deleteinformasiflora');
 
+    Route::get('/verifblog' , [\App\Http\Controllers\adminController::class , 'blog'])->name('admin.verifblog');
+    Route::get('/verifblog/{id}' , [\App\Http\Controllers\adminController::class , 'blogverif'])->name('admin.verifblogpost');
+     Route::get('/tolakblog/{id}' , [\App\Http\Controllers\adminController::class , 'tolakblog'])->name('admin.tolakblog');
+
     Route::get('/input/informasifaunaedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifaunaedit'])->name('admin.informasifaunaedit');
 
     Route::post('/input/informasifaunaedit/{id}', [\App\Http\Controllers\adminController::class, 'informasifaunaeditpost'])->name('admin.informasifaunaeditpost');
@@ -107,3 +111,10 @@ Route::get('/tentangkami/delete/{id}' , [\App\Http\Controllers\HomeController::c
 
 Route::get('/feedback' , [\App\Http\Controllers\dashboardController::class , 'feedback'])->name('feedback');
 Route::post('/feedback' , [\App\Http\Controllers\dashboardController::class , 'feedbackpost'])->name('feedback');
+
+Route::prefix('blog')->group(function (){
+    Route::get('/formblog' , [\App\Http\Controllers\blogController::class , 'form'])->name('blog.form')->middleware(['auth']);
+Route::post('/formblog' , [\App\Http\Controllers\blogController::class , 'formpost'])->name('blog.form')->middleware(['auth']);
+Route::get('/index' , [\App\Http\Controllers\blogController::class , 'index'])->name('blog.index');
+Route::get('/detail/{id}' , [\App\Http\Controllers\blogController::class , 'detail'])->name('blog.detail');
+});

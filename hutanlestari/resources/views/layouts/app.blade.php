@@ -84,7 +84,7 @@
                                 <a class="nav-link" href="{{route('informasi.index')}}">Information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
+                                <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
                             </li>
 
                             <li class="nav-item" style="width: 200px">

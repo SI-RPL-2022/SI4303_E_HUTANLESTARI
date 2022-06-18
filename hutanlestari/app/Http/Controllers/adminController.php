@@ -241,4 +241,26 @@ class adminController extends Controller
         $data = Feedback::all();
         return view('admin.feedback' , ['data'=>$data]);
     }
+
+    // verif blog
+    public function blog(){
+        $data = Blog::orderBy('created_at' , 'DESC')->get();
+        return view('admin.verifblog' , ['data' => $data]);
+    }
+
+    public function blogverif($id){
+        $data = Blog::find($id);
+        $data->verifikasi_check = 1;
+        $data->update();
+
+        return redirect()->back();
+    }
+
+    public function tolakblog($id){
+        $data = Blog::find($id);
+        $data->verifikasi_check = 1;
+        $data->delete();
+
+        return redirect()->back();
+    }
 }
