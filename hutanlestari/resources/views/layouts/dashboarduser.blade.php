@@ -178,7 +178,7 @@
 
                     <a href="{{route('dashboard.flora')}}" class="btn btn-success text-black mx-1"> Donasi Flora atau fauna </a>
 
-                    <a href="{{route('dashboard.blog')}}" class="btn btn-success text-black mx-1"> Blog Saya</a>
+                    <!-- <a href="{{route('dashboard.blog')}}" class="btn btn-success text-black mx-1"> Blog Saya</a> -->
 
                 </div>
 

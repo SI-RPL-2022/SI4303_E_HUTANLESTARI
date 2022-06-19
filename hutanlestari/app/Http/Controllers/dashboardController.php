@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+// use App\Models\Blog;
 use App\Models\Campaign;
 use App\Models\Donasi;
 use App\Models\Feedback;
@@ -22,10 +22,10 @@ class dashboardController extends Controller
         return view('dashboard.campaign' , ['data' => $data]);
     }
 
-    public function blog(){
-        $data = Blog::where('user_id' , Auth::user()->id)->orderBy('created_at' , 'DESC')->get();
-        return view('dashboard.blog' , ['data' => $data]);
-    }
+    // public function blog(){
+    //     $data = Blog::where('user_id' , Auth::user()->id)->orderBy('created_at' , 'DESC')->get();
+    //     return view('dashboard.blog' , ['data' => $data]);
+    // }
 
     public function feedback(){
         return view('feedback');
